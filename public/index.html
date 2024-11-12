@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memecoins Hotlist</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Hotlist oben -->
+    <header>
+        <div id="hotlist">
+            <h2>Hotlist</h2>
+            <div id="top-list-wrapper">
+                <ul id="top-list">
+                    <!-- Dynamische Inhalte der Hotlist -->
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigationsleiste -->
+    <nav>
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="pages/nft.html">NFT's</a>
+            <a href="pages/gainers-losers.html">Gewinner und Verlierer</a>
+        </div>
+        <div class="nav-right">
+            <a href="pages/portfolio.html">Portfolio</a>
+            <a href="pages/watchlist.html">Watchlist</a>
+            <input type="text" placeholder="Suche nach Coins oder NFTs" id="search-bar">
+            <button id="login-button" onclick="showLoginModal()">Log in / Registrieren</button>
+        </div>
+    </nav>
+
+    <!-- Hauptinhalt der Homepage -->
+    <main>
+        <!-- Top Memecoins Liste -->
+        <section id="top-memecoins">
+            <h3>Memecoins</h3>
+            <div id="memecoins-container">
+                <table id="memecoins-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kryptowährung</th>
+                            <th>Kurs</th>
+                            <th>1h %</th>
+                            <th>24h %</th>
+                            <th>7d %</th>
+                            <th>24-Stunden-Volumen</th>
+                            <th>Marktkapitalisierung</th>
+                            <th>Letzte 7 Tage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="memecoins-list">
+                        <!-- Dynamische Inhalte werden hier eingefügt -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Paginierungs-Element -->
+        <div id="pagination" style="text-align: center; margin-top: 20px;">
+            <!-- Dynamische Paginierung wird hier eingefügt -->
+        </div>
+
+       <!-- Login/Signup Modal -->
+<div id="modal-background" class="modal-background" onclick="closeModal()"></div>
+
+<div id="login-signup-modal" class="modal">
+    <!-- Tab Container for Login and Signup -->
+    <div class="tab-container">
+        <div id="tab-login" class="tab active" onclick="showLoginTab()">Log In</div>
+        <div id="tab-signup" class="tab" onclick="showSignupTab()">Sign Up</div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="form-section">
+        <h2>Log in</h2>
+        <form>
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email address..." required>
+
+            <label>Password</label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+            <input type="password" placeholder="Enter your password..." required>
+
+            <button type="submit" class="btn-primary">Log In</button>
+        </form>
+
+        <div class="or-divider">or</div>
+
+        <button class="btn-social">Continue with Google</button>
+        <button class="btn-social">Continue with Apple</button>
+        <button class="btn-social">Continue with Binance</button>
+        <button class="btn-social">Continue with Wallet</button>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-form" class="form-section" style="display: none;">
+        <h2>Sign Up</h2>
+        <form>
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email address..." required>
+
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password..." required>
+
+            <label class="checkbox">
+                <input type="checkbox">
+                Please keep me updated by email with the latest crypto news, research findings, reward programs, event updates, coin listings, and more information from (Website Name).
+            </label>
+
+            <button type="submit" class="btn-primary">Create an account</button>
+        </form>
+
+        <div class="or-divider">or</div>
+
+        <button class="btn-social">Continue with Google</button>
+        <button class="btn-social">Continue with Apple</button>
+        <button class="btn-social">Continue with Binance</button>
+        <button class="btn-social">Continue with Wallet</button>
+
+        <p>By proceeding, you agree to the Website’s Terms of Use & Privacy Policy.</p>
+    </div>
+</div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script>
+function showLoginTab() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('tab-login').classList.add('active');
+    document.getElementById('tab-signup').classList.remove('active');
+}
+
+function showSignupTab() {
+    document.getElementById('signup-form').style.display = 'block';
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('tab-signup').classList.add('active');
+    document.getElementById('tab-login').classList.remove('active');
+}
+
+function showLoginModal() {
+    showLoginTab();
+    document.getElementById('login-signup-modal').style.display = 'block';
+    document.getElementById('modal-background').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('login-signup-modal').style.display = 'none';
+    document.getElementById('modal-background').style.display = 'none';
+}
+</script>
+<script src="/scripts/hotlist.js"></script>
+
+</body>
+</html>

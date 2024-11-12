@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Watchlist</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <!-- Header und Navigation wie bei anderen Seiten einfügen -->
+
+    <h1>Meine Watchlist</h1>
+    <p>Alle Coins, die als Favoriten markiert wurden, erscheinen hier.</p>
+    
+    <!-- Tabelle für die Watchlist -->
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Preis</th>
+                <th>24h %</th>
+                <th>Markieren</th> <!-- Spalte für Stern/Favoriten-Icon -->
+            </tr>
+        </thead>
+        <tbody id="watchlist">
+            <!-- Dynamisch geladene Favoriten-Coin-Daten -->
+        </tbody>
+    </table>
+
+    <script src="../scripts/watchlist.js"></script> <!-- Neues Skript für die Watchlist -->
+    <script src="public/scripts/hotlist.js"></script> <!-- einbindung hotlist -->
+</body>
+</html>

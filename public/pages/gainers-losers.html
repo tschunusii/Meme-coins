@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Gewinner und Verlierer</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <!-- Hotlist oben -->
+    <header>
+        <div id="hotlist">
+            <h2>Hotlist</h2>
+            <div id="top-list-wrapper">
+                <ul id="top-list">
+                    <!-- Dynamische Inhalte der Hotlist -->
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigationsleiste -->
+    <nav>
+        <div class="nav-left">
+            <a href="../index.html">Home</a>
+            <a href="nft.html">NFT's</a>
+            <a href="gainers-losers.html">Gewinner und Verlierer</a>
+        </div>
+        <div class="nav-right">
+            <a href="portfolio.html">Portfolio</a>
+            <a href="watchlist.html">Watchlist</a>
+            <input type="text" placeholder="Suche nach Coins oder NFTs" id="search-bar">
+            <button id="login-button">Log in / Registrieren</button>
+        </div>
+    </nav>
+
+    <h1>Top Gewinner und Verlierer</h1>
+
+    <!-- Container für Gewinner und Verlierer Tabellen -->
+    <div class="gainers-losers-container">
+        <!-- Gewinner Tabelle -->
+        <section id="top-gainers">
+            <h2>Top Gewinner</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Preis</th>
+                        <th>24h %</th>
+                    </tr>
+                </thead>
+                <tbody id="gainers-list">
+                    <!-- Dynamische Inhalte für Gewinner -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Verlierer Tabelle -->
+        <section id="top-losers">
+            <h2>Top Verlierer</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Preis</th>
+                        <th>24h %</th>
+                    </tr>
+                </thead>
+                <tbody id="losers-list">
+                    <!-- Dynamische Inhalte für Verlierer -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="../scripts/main.js"></script> <!-- Für Hotlist und Navigation -->
+    <script src="../scripts/gainers-losers.js"></script> <!-- Für Gewinner und Verlierer Daten -->
+</body>
+</html>

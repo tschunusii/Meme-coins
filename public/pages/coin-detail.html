@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Coin-Detail</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <!-- Hotlist oben -->
+    <header id="hotlist">
+        <h2>Hotlist</h2>
+        <div id="top-list-wrapper">
+            <ul id="top-list" style="animation: scroll 60s linear infinite;">
+                <!-- Dynamische Inhalte der Hotlist werden hier eingefügt -->
+            </ul>
+        </div>
+    </header>
+
+    <!-- Navigationsleiste -->
+    <nav>
+        <div class="nav-left">
+            <a href="../index.html">Home</a>
+            <a href="nft.html">NFT's</a>
+            <a href="gainers-losers.html">Gewinner und Verlierer</a>
+        </div>
+        <div class="nav-right">
+            <a href="portfolio.html">Portfolio</a>
+            <a href="watchlist.html">Watchlist</a>
+            <input type="text" placeholder="Suche nach Coins oder NFTs" id="search-bar">
+            <button id="login-button" onclick="showLoginModal()">Log in / Registrieren</button>
+        </div>
+    </nav>
+
+    <!-- Header für die Coin-Details -->
+    <section>
+        <h1 id="coin-name">Lade Coin-Daten...</h1>
+    </section>
+
+    <!-- TradingView Chart-Container -->
+    <section id="chart-section">
+        <div id="tradingview-chart-container"></div>
+    </section>
+
+    <section id="trade-section">
+        <table id="trade-table">
+            <thead>
+                <tr>
+                    <th>Zeit</th>
+                    <th>Art</th>
+                    <th>Menge</th>
+                    <th>Preis</th>
+                </tr>
+            </thead>
+            <tbody id="trade-data"></tbody>
+        </table>
+    </section>
+
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="../scripts/coin-detail.js"></script>
+</body>
+</html>
