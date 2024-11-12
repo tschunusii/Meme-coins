@@ -1,4 +1,5 @@
-let currentPage = 1;
+let currentPage = 1; // Deklariere nur einmal
+currentPage = 2; // Weise nur neu zu, ohne `let` oder `const`
 const coinsPerPage = 50;
 const totalCoins = 5000;  // Beispiel für die Gesamtzahl der Coins (anpassen, falls bekannt)
 const totalPages = Math.ceil(totalCoins / coinsPerPage);
