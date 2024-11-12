@@ -1,6 +1,6 @@
 let currentPage = 1;
 const coinsPerPage = 50;
-const totalCoins = 5000;  // Beispiel für die Gesamtzahl der Coins
+const totalCoins = 5000;
 const totalPages = Math.ceil(totalCoins / coinsPerPage);
 
 async function fetchMemeCoins(page = 1) {
@@ -11,12 +11,11 @@ async function fetchMemeCoins(page = 1) {
         if (!response.ok) throw new Error("Daten konnten nicht geladen werden.");
         const data = await response.json();
 
-        // Filtert Memecoins mit einer Marktkapitalisierung von 200.000 bis 100.000.000.000 USD
         const filteredData = data.filter(coin => coin.market_cap >= 200000 && coin.market_cap <= 100000000000);
 
         if (Array.isArray(filteredData)) {
             displayTopMemecoins(filteredData);
-            updatePagination(page); // Aktualisiert die Seitenzahl
+            updatePagination(page);
         } else {
             console.error("Ungültige Datenstruktur von API");
         }
@@ -28,14 +27,13 @@ async function fetchMemeCoins(page = 1) {
 
 function formatCoinValue(value) {
     if (value >= 0.01) {
-        return value.toFixed(2); // Für Werte >= 0.01, zeige 2 Dezimalstellen
+        return value.toFixed(2);
     } else {
         const formattedValue = parseFloat(value.toPrecision(4));
         return formattedValue.toString();
     }
 }
 
-// Funktion zur Anzeige der Memecoins
 function displayTopMemecoins(coins) {
     const memecoinList = document.getElementById('memecoins-list');
     if (!memecoinList) return;
@@ -71,7 +69,6 @@ function displayTopMemecoins(coins) {
     });
 }
 
-// Funktion zur Aktualisierung der Paginierung
 function updatePagination(page) {
     const paginationElement = document.getElementById('pagination');
     paginationElement.innerHTML = `
@@ -81,13 +78,11 @@ function updatePagination(page) {
     `;
 }
 
-// Funktion zur Änderung der Seite
 function changePage(newPage) {
     currentPage = newPage;
     fetchMemeCoins(currentPage);
 }
 
-// Funktion zur Anzeige der Hotlist mit den Top-Gewinnern aus `localStorage`
 function updateHotlist() {
     const hotlistElement = document.getElementById('top-list');
     const hotlistData = JSON.parse(localStorage.getItem('topGainers')) || [];
@@ -104,12 +99,11 @@ function updateHotlist() {
         coinLink.style.color = 'inherit';
         coinLink.style.textDecoration = 'none';
 
-        // Formatieren des Preises abhängig von der Höhe
         let displayPrice;
         if (coin.current_price < 0.01) {
-            displayPrice = coin.current_price.toPrecision(4); // Zeigt vier signifikante Stellen an
+            displayPrice = coin.current_price.toPrecision(4);
         } else {
-            displayPrice = coin.current_price.toFixed(2); // Zeigt zwei Dezimalstellen an
+            displayPrice = coin.current_price.toFixed(2);
         }
 
         coinLink.textContent = `${coin.name} - $${displayPrice}`;
@@ -124,11 +118,9 @@ function updateHotlist() {
     });
 }
 
-// Initialer Aufruf und Intervall für das automatische Update der Hotlist alle 10 Sekunden
 updateHotlist();
 setInterval(updateHotlist, 10000);
 
-// Initialer Aufruf zum Laden der Hauptseite
 if (document.getElementById('memecoins-list')) {
     fetchMemeCoins(currentPage);
 }
