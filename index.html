@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memecoins Hotlist</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="assets/images/favicon.ico">
 </head>
 <body>
     <!-- Hotlist oben -->
@@ -81,16 +82,12 @@
                 <form>
                     <label>Email Address</label>
                     <input type="email" placeholder="Enter your email address..." required>
-
                     <label>Password</label>
                     <a href="#" class="forgot-password">Forgot password?</a>
                     <input type="password" placeholder="Enter your password..." required>
-
                     <button type="submit" class="btn-primary">Log In</button>
                 </form>
-
                 <div class="or-divider">or</div>
-
                 <button class="btn-social">Continue with Google</button>
                 <button class="btn-social">Continue with Apple</button>
                 <button class="btn-social">Continue with Binance</button>
@@ -103,25 +100,19 @@
                 <form>
                     <label>Email Address</label>
                     <input type="email" placeholder="Enter your email address..." required>
-
                     <label>Password</label>
                     <input type="password" placeholder="Enter your password..." required>
-
                     <label class="checkbox">
                         <input type="checkbox">
                         Please keep me updated by email with the latest crypto news, research findings, reward programs, event updates, coin listings, and more information from (Website Name).
                     </label>
-
                     <button type="submit" class="btn-primary">Create an account</button>
                 </form>
-
                 <div class="or-divider">or</div>
-
                 <button class="btn-social">Continue with Google</button>
                 <button class="btn-social">Continue with Apple</button>
                 <button class="btn-social">Continue with Binance</button>
                 <button class="btn-social">Continue with Wallet</button>
-
                 <p>By proceeding, you agree to the Website’s Terms of Use & Privacy Policy.</p>
             </div>
         </div>
@@ -137,20 +128,17 @@
             document.getElementById('tab-login').classList.add('active');
             document.getElementById('tab-signup').classList.remove('active');
         }
-
         function showSignupTab() {
             document.getElementById('signup-form').style.display = 'block';
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('tab-signup').classList.add('active');
             document.getElementById('tab-login').classList.remove('active');
         }
-
         function showLoginModal() {
             showLoginTab();
             document.getElementById('login-signup-modal').style.display = 'block';
             document.getElementById('modal-background').style.display = 'block';
         }
-
         function closeModal() {
             document.getElementById('login-signup-modal').style.display = 'none';
             document.getElementById('modal-background').style.display = 'none';
