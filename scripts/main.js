@@ -4,34 +4,21 @@ const totalCoins = 5000;
 const totalPages = Math.ceil(totalCoins / coinsPerPage);
 
 async function fetchMemeCoins(page = 1) {
-    const url = `https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=meme-token&order=market_cap_desc&per_page=${coinsPerPage}&page=${page}&sparkline=false&price_change_percentage=1h,24h,7d`;
+    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=meme-token&order=market_cap_desc&per_page=${coinsPerPage}&page=${page}&sparkline=false&price_change_percentage=1h,24h,7d`;
 
     try {
-        const response = await fetch(url, { mode: 'cors' });
+        const response = await fetch(url);
         if (!response.ok) throw new Error("Daten konnten nicht geladen werden.");
         const data = await response.json();
 
-        const filteredData = data.filter(coin => coin.market_cap >= 200000 && coin.market_cap <= 100000000000);
-
-        if (Array.isArray(filteredData)) {
-            displayTopMemecoins(filteredData);
-            updatePagination(page);
-        } else {
-            console.error("Ungültige Datenstruktur von API");
-        }
+        displayTopMemecoins(data);
     } catch (error) {
         console.error('Fehler beim Abrufen der Meme-Coin-Daten:', error);
-        alert("Daten konnten nicht geladen werden. Bitte versuchen Sie es später erneut.");
     }
 }
 
 function formatCoinValue(value) {
-    if (value >= 0.01) {
-        return value.toFixed(2);
-    } else {
-        const formattedValue = parseFloat(value.toPrecision(4));
-        return formattedValue.toString();
-    }
+    return value >= 0.01 ? value.toFixed(2) : parseFloat(value.toPrecision(4)).toString();
 }
 
 function displayTopMemecoins(coins) {
@@ -99,12 +86,7 @@ function updateHotlist() {
         coinLink.style.color = 'inherit';
         coinLink.style.textDecoration = 'none';
 
-        let displayPrice;
-        if (coin.current_price < 0.01) {
-            displayPrice = coin.current_price.toPrecision(4);
-        } else {
-            displayPrice = coin.current_price.toFixed(2);
-        }
+        const displayPrice = coin.current_price < 0.01 ? coin.current_price.toPrecision(4) : coin.current_price.toFixed(2);
 
         coinLink.textContent = `${coin.name} - $${displayPrice}`;
 
