@@ -1,0 +1,329 @@
+/* Grundlayout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131722;
+    color: #ffffff;
+}
+
+/* Header und Hotlist */
+header, #hotlist {
+    background-color: #1a1f2b;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
+
+#hotlist {
+    padding: 10px 0;
+}
+
+#top-list-wrapper {
+    display: inline-block;
+    background-color: #2b3b52;
+    padding: 10px 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#top-list {
+    display: inline-flex;
+    gap: 20px;
+    animation: scroll 60s linear infinite; /* Anpassung der Geschwindigkeit */
+}
+
+.coin-item {
+    display: flex;
+    align-items: center;
+    background-color: #2b3b52;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.coin-gain { color: #00ff00; margin-left: 5px; }
+.coin-loss { color: #ff0000; margin-left: 5px; }
+
+/* Laufband-Animation */
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+#top-list {
+    display: inline-flex;
+    gap: 20px;
+    animation: scroll 30s linear infinite; /* Dauer der Animation */
+}
+
+
+/* Navigationsleiste */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1f2b;
+    padding: 10px 20px;
+}
+
+.nav-left a, .nav-right a, nav a {
+    color: #00c6ff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-left a:hover, .nav-right a:hover, nav a:hover { color: #ffffff; }
+
+#login-button, .cta-button, .buy-button {
+    background-color: #00c6ff;
+    color: #1a1f2b;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#login-button:hover, .cta-button:hover, .buy-button:hover { background-color: #00a4d6; }
+
+#search-bar {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #00c6ff;
+    margin-left: 10px;
+}
+
+/* Mobile-Anpassungen */
+@media (max-width: 768px) {
+    nav { flex-direction: column; align-items: flex-start; }
+    .nav-right { display: flex; flex-direction: column; }
+    #search-bar { margin: 10px 0; }
+}
+
+/* Hauptinhalt der Homepage */
+main {
+    padding: 20px;
+    color: #ffffff;
+}
+
+#intro, #top-memecoins, #nft-preview, #trending-news {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #1f2937;
+    border-radius: 8px;
+}
+
+h2, h3 { color: #00c6ff; }
+
+/* Paginierung */
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pagination-controls button {
+    background-color: #00c6ff;
+    color: #1a1f2b;
+    padding: 8px 15px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#pagination-controls button:disabled { background-color: #888; cursor: not-allowed; }
+#pagination-controls span { color: #ffffff; font-weight: bold; }
+
+/* Tabelle für Memecoins */
+#memecoins-table, .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+#memecoins-table th, #memecoins-table td, .styled-table th, .styled-table td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+#memecoins-table th, .styled-table th {
+    background-color: #1f2937;
+    color: #00c6ff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#memecoins-table tr, .styled-table tr { transition: background-color 0.2s; }
+#memecoins-table tr:hover, .styled-table tr:hover { background-color: #2b3b52; }
+
+.coin-symbol { font-size: 0.85em; color: #888; display: block; }
+.chart-icon { width: 24px; height: 24px; vertical-align: middle; margin-left: 10px; }
+
+.styled-table .coin-gain, .styled-table .coin-loss {
+    font-weight: bold;
+}
+.styled-table .coin-gain { color: #00ff00; }
+.styled-table .coin-loss { color: #ff0000; }
+
+/* NFT-Galerie */
+#nft-gallery, .nft-card {
+    padding: 20px;
+    background-color: #1f2937;
+    border-radius: 8px;
+}
+
+.nft-card {
+    text-align: center;
+    color: #ffffff;
+    transition: transform 0.2s;
+}
+
+.nft-card:hover { transform: scale(1.05); }
+.nft-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.nft-card h4 { font-size: 1.1em; margin: 10px 0 5px; }
+.nft-card p { font-size: 0.9em; color: #b0bec5; }
+
+/* Modal Styling */
+.modal-background, .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1f2937;
+    color: white;
+    padding: 30px 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-background { top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); z-index: 1; }
+
+/* Formularfeld und Button */
+.modal input[type="email"], .modal input[type="password"], .modal input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    margin: 10px 0;
+    border: 1px solid #2b3b52;
+    border-radius: 6px;
+    background: #2b3b52;
+    color: white;
+    font-size: 0.9em;
+}
+
+/* Tab Container */
+.modal .tab-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #2b3b52;
+}
+
+.modal .tab {
+    flex: 1;
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #b0bec5;
+    text-align: center;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.modal .tab.active { color: white; border-bottom: 2px solid #00c6ff; }
+
+/* Social Button Styling */
+.modal .btn-social {
+    display: block;
+    width: 100%;
+    max-width: 80%;
+    margin: 10px auto;
+    background: #2b3b52;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid #4a4a4a;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modal .btn-social:hover { background: #3e4a6e; }
+
+/* Divider Styling */
+.modal .or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #b0bec5;
+}
+
+.modal .or-divider:before, .modal .or-divider:after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.modal .or-divider:before { margin-right: 0.5em; }
+.modal .or-divider:after { margin-left: 0.5em; }
+
+.modal p { font-size: 0.85em; color: #b0bec5; margin-top: 20px; line-height: 1.5; }
+
+/* Checkbox Styling */
+.modal .checkbox {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.9em;
+    color: #b0bec5;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.modal .checkbox input { margin-right: 10px; transform: scale(1.2); }
+
+/* Chart- und Handelsbereich */
+#chart-section, #trade-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #1f2937;
+    border-radius: 8px;
+}
+
+#tradingview-chart { height: 100%; }
+
+#trade-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+#trade-table th, #trade-table td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+.trade-buy { color: #00c6ff; font-weight: bold; } /* Blau für Käufe */
+.trade-sell { color: #ff4d4d; font-weight: bold; } /* Rot für Verkäufe */
