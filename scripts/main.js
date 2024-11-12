@@ -1,7 +1,6 @@
-let currentPage = 1; // Deklariere nur einmal
-currentPage = 2; // Weise nur neu zu, ohne `let` oder `const`
+let currentPage = 1;
 const coinsPerPage = 50;
-const totalCoins = 5000;  // Beispiel für die Gesamtzahl der Coins (anpassen, falls bekannt)
+const totalCoins = 5000;  // Beispiel für die Gesamtzahl der Coins
 const totalPages = Math.ceil(totalCoins / coinsPerPage);
 
 async function fetchMemeCoins(page = 1) {
@@ -88,7 +87,6 @@ function changePage(newPage) {
     fetchMemeCoins(currentPage);
 }
 
-
 // Funktion zur Anzeige der Hotlist mit den Top-Gewinnern aus `localStorage`
 function updateHotlist() {
     const hotlistElement = document.getElementById('top-list');
@@ -129,8 +127,6 @@ function updateHotlist() {
 // Initialer Aufruf und Intervall für das automatische Update der Hotlist alle 10 Sekunden
 updateHotlist();
 setInterval(updateHotlist, 10000);
-
-
 
 // Initialer Aufruf zum Laden der Hauptseite
 if (document.getElementById('memecoins-list')) {
