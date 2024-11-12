@@ -4,7 +4,7 @@ const totalCoins = 5000;  // Beispiel für die Gesamtzahl der Coins
 const totalPages = Math.ceil(totalCoins / coinsPerPage);
 
 async function fetchMemeCoins(page = 1) {
-    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=meme-token&order=market_cap_desc&per_page=${coinsPerPage}&page=${page}&sparkline=false&price_change_percentage=1h,24h,7d`;
+    const url = `https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=meme-token&order=market_cap_desc&per_page=${coinsPerPage}&page=${page}&sparkline=false&price_change_percentage=1h,24h,7d`;
 
     try {
         const response = await fetch(url, { mode: 'cors' });
