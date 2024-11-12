@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Verifiziere deine E-Mail</title>
+</head>
+<body>
+    <h2>E-Mail bestätigen</h2>
+    <form id="verify-form">
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="text" id="pin" placeholder="6-stelliger PIN" required><br>
+        <button type="submit">Bestätigen</button>
+    </form>
+
+    <script>
+        document.getElementById('verify-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const pin = document.getElementById('pin').value;
+
+            const res = await fetch('/auth/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, code: pin })
+            });
+
+            const data = await res.json();
+            alert(data.message);
+            if (res.ok) {
+                window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>
